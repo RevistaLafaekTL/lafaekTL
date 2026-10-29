@@ -349,8 +349,8 @@ const content: Record<Lang, AboutContent> = {
       whoText:
         "CARE International hanesan konfederasaun global ne’ebé kompostu husi organizasaun nasional independente sira iha nasaun oin-oin. CARE servisu iha Timor-Leste dezde 1994. Nia programa foka ba edukasaun, saúde, hakbiit ekonomia feto, no hakbiit feto sira ninia lian inklui asistensia umanitária.",
       stats: [
-        { number: "499.277", label: "Ema ne’ebé hetan alkanse husi CARE nia programa" },
-        { number: "49%", label: "Persentajen feto no labarik feto husi totalidade" },
+        { number: "499.277", label: "Ema ne’ebé hetan alkansa husi CARE nia programa" },
+        { number: "49%", label: "Persentajen feto no labarik-feto husi totalidade" },
         { number: "121", label: "Funsionáriu iha Dili no munisípiu sira" },
       ],
       statsNote:
@@ -358,21 +358,21 @@ const content: Record<Lang, AboutContent> = {
       historyTitle: "Ami-nia Istória no Servisu",
       history: [
         "CARE hahú nia atividade iha Timor-Leste nu’udar parte husi CARE Indonesia, no iha 2000 sai eskritóriu independente. Iha 2008, responsabilidade jestaun transfere husi CARE Canada ba CARE Australia.",
-        "Ho kompromisu ba dezenvolvimentu sustentável no resposta umanitária, CARE servisu iha área agrikultura, redusaun risku dezastre, edukasaun, saúde komunitária, nutrisaun, no saneamentu. Inklui asuntu transversal sira hanesan igualdade jéneru no inkluzaun. Programa sira-ne’e mós apoia dezenvolvimentu kapasidade, asesu ba informasaun, konstrusaun pás, infraestrutura rurál, empregu, no partisipasaun feto no labarik feto.",
+        "Ho kompromisu ba dezenvolvimentu sustentável no resposta umanitária, CARE servisu iha área agrikultura, redusaun risku dezastre, edukasaun, saúde komunitária, nutrisaun, no saneamentu. Inklui asuntu transversal sira hanesan igualdade jéneru no inkluzaun. Programa sira-ne’e mós apoia dezenvolvimentu kapasidade, asesu ba informasaun, konstrusaun pás, infraestrutura rurál, empregu, no partisipasaun feto no labarik-feto.",
       ],
       humanitarian: [
         "CARE kontribui ba resposta umanitária durante krize iha 1999 no 2006, impaktu El Niño iha 2014–2017, inundasaun iha Abríl 2021 no pandemia COVID-19.",
-        "Durante krize 2006, CARE responde ba nesesidade komunidade dezlokada iha Dili liuhosi apoiu ba jestaun akampamentu, koordenasaun umanitária, fornesimentu bee, protesaun labarik no partilla informasaun esensiál ba populasaun afetada husi violénsia.",
+        "Durante krize 2006, CARE responde ba nesesidade komunidade dezlokadu iha Dili liuhusi apoiu ba jestaun akampamentu, koordenasaun umanitária, fornesimentu bee, protesaun labarik no partilla informasaun esensiál ba populasaun afetada husi violénsia.",
       ],
       toLafaekTitle: "Husi CARE ba Mídia Aprendizajen LAFAEK",
       toLafaek: [
         "Dezde 2008, CARE implementa ona liu projetu dezenvolvimentu no umanitáriu 100, iha kolaborasaun ho parseiru liu 44, no ho apoiu husi doadór no parseiru internasionál sira.",
         "Inisiativa sira-ne’e inklui Mídia Aprendizajen LAFAEK, projetu edukasaun ba tempu naruk ne’ebé nia dezenvolvimentu hahú iha 2000 no nia revista dahuluk distribui iha inísiu 2001.",
-        "Husi revista ida ba labarik, LAFAEK dezenvolve sai programa mídia edukasionál ne’ebé abranje konteúdu online no revista haat ba estudante, manorin, no komunidade. LAFAEK nia alkance to’o 47% husi populasaun Timor-Leste, hodi haluan asesu ba materiál aprendizajen no informasaun iha lian Tetun.",
+        "Husi revista ida ba labarik, LAFAEK dezenvolve sai programa mídia edukasionál ne’ebé abranje konteúdu online no revista haat ba kanorin, manorin, no komunidade. LAFAEK nia alkansa to’o 47% husi populasaun Timor-Leste, hodi haluan asesu ba materiál aprendizajen no informasaun iha lian Tetun.",
       ],
       visionTitle: "Ami-nia Vizaun",
       visionQuote:
-        "Ami hakarak mundu ida ne’ebé nakonu ho esperansa no igualdade, iha ne’ebé pobreza hetan ona solusaun no ema hotu moris iha dignidade no seguru.",
+        "Ami hakarak mundu ida-ne’ebé nakonu ho esperansa no igualdade, iha ne’ebé pobreza hetan ona solusaun no ema hotu moris iha dignidade no seguru.",
       visionText:
         "CARE sai nu’udar parseiru globál ida iha movimentu mundiál atu halakon ki’ak. CARE koñesidu iha fatin hotu-hotu tanba nia kompromisu metin atu defende dignidade umana.",
       pillars: [
@@ -382,7 +382,7 @@ const content: Record<Lang, AboutContent> = {
         },
         {
           title: "Hasa’e Impaktu",
-          text: "Liuhusi aprendizajen no dezenvolvimentu parseria, atu haboot metodu sira-ne’ebé provadu ona atu hamenus ki’ak.",
+          text: "Liuhusi aprendizajen no dezenvolvimentu parseria, atu haboot métodu sira-ne’ebé provadu ona atu hamenus ki’ak.",
         },
         {
           title: "Kria Mudansa ho Durasaun Naruk",
@@ -393,45 +393,45 @@ const content: Record<Lang, AboutContent> = {
       missionQuote: "CARE hala’o servisu iha mundu tomak atu salva ema nia moris, halakon ki’ak.",
       focusTitle: "Ami-nia foku",
       focusText:
-        "CARE tau feto no labarik feto sira sai sentru iha ami-nia servisu, tanba ami hatene katak ita sei labele halakon ki’ak se ema hotu-hotu la hetan direitu no oportunidade hanesan.",
+        "CARE tau feto no labarik-feto sira sai sentru iha ami-nia servisu, tanba ami hatene katak ita sei labele halakon ki’ak se ema hotu-hotu la hetan direitu no oportunidade hanesan.",
       valuesTitle: "Valór Prinsipál Sira",
       values: [
         {
           title: "Transformasaun",
           points: [
-            "Ami fiar ba asaun lalais, inovasaun no nesesidade atu halo transformasaun, iha mundu tomak no mos iha ami-nia organizasaun rasik.",
+            "Ami fiar ba asaun lailais, inovasaun no nesesidade atu halo transformasaun, iha mundu tomak no mós iha ami-nia organizasaun rasik.",
             "Ami servisu hamutuk ho komunidade sira atu realiza sira-nia direitu, responsabilidade no aspirasaun.",
-            "Ami fó rezultadu ne’ebé muda moris no bele sukat ho didiak liuhosi abordagem inovadora ne’ebé bele dura ba tempu naruk.",
+            "Ami fó rezultadu ne’ebé muda moris no bele sukat ho didiak liuhusi abordagem inovadora ne’ebé bele dura ba tempu naruk.",
             "Ami esforsu beibeik atu hadi’a an, aprende husi sala sira no simu mudansa ho laran nakloke.",
-            "Ami servisu hamutuk hodi halo advocacia ho parseiru no parte relevante sira atu responde ho signifikativu ba kauza fundamentál sira ne’ebé kontribui ba kiak no vulnerabilidade.",
+            "Ami servisu hamutuk hodi halo advokasia ho parseiru no parte relevante sira atu responde ho signifikativu ba kauza fundamentál sira ne’ebé kontribui ba kiak no vulnerabilidade.",
           ],
         },
         {
           title: "Integridade",
           points: [
-            "Ami responsabiliza ba ema no parseiru sira ne’ebé ami serve ho laran, no ami partilla ho transparénsia ami-nia rezultadu, istória no lisaun sira ne’ebé ami aprende.",
-            "Ami hatudu ami-nia kompromisu forte ba ema sira liuhosi hahalok ho morál di’ak, integridade no hakarak atu harii konfiansa.",
+            "Ami responsabiliza ba ema no parseiru sira-ne’ebé ami serve ho laran, no ami partilla ho transparénsia ami-nia rezultadu, istória no lisaun sira ne’ebé ami aprende.",
+            "Ami hatudu ami-nia kompromisu forte ba ema sira liuhusi hahalok ho morál di’ak, integridade no hakarak atu harii konfiansa.",
             "Ami responsabiliza ba malu no halo transparénsia ho malu, doadór sira, parseiru sira no komunidade ne’ebé ami serve.",
-            "Ami kumpre lei no regulamentu sira ne’ebé aplika, no mos CARE nia politika no prosedimentu sira.",
-            "Ami jere ho responsabilidade fundu sira ne’ebé entrega ba ami no nafatin buka atu hamenus despeza ne’ebé la presiza.",
-            "Ami la involve an ka tolera fraude, desonestidade, furtu, korupsaun, nepotizmu ka subornu.",
+            "Ami kumpre lei no regulamentu sira-ne’ebé aplika, no mós CARE nia polítika no prosedimentu sira.",
+            "Ami jere ho responsabilidade fundu sira-ne’ebé entrega ba ami no nafatin buka atu hamenus despeza ne’ebé la presiza.",
+            "Ami la envolve an ka tolera fraude, La onestu, Na’ok, korupsaun, nepotizmu ka subornu.",
             "Ami evita no relata konflitu interese nian no situasaun ruma ne’ebé bele kria aparénsia ka suspeita kona-ba konflitu interese.",
           ],
         },
         {
           title: "Diversidade",
           points: [
-            "Ami hatene katak liuhosi simu no valoriza diferensa sira, inklui rona ativamente lian no perspetiva oioin, no servisu hamutuk, ami bele rezolve problema kompleksu liu iha mundu.",
+            "Ami hatene katak liuhusi simu no valoriza diferensa sira, inklui rona ativamente lian no perspetiva oin-oin, no servisu hamutuk, ami bele rezolve problema kompleksu liu iha mundu.",
             "Ami selebra ambiente servisu ne’ebé diversu, iha ne’ebé ema hotu-hotu bele hetan suksesu no dezenvolve an ho di’ak.",
-            "Ami rekonhese katak forsa CARE nian mai husi kompromisu, dedikasaun no perísia husi ami-nia funsionáriu no parseiru sira.",
+            "Ami rekoñese katak forsa CARE nian mai husi kompromisu, dedikasaun no perísia husi ami-nia funsionáriu no parseiru sira.",
             "Ami rona no valoriza hanoin no haree nain sira seluk.",
-            "Ami fiar katak liuhosi simu no abrasa diversidade, ami bele rezolve problema kompleksu liu iha mundu.",
+            "Ami fiar katak liuhusi simu no abrasa diversidade, ami bele rezolve problema kompleksu liu iha mundu.",
           ],
         },
         {
           title: "Igualdade",
           points: [
-            "Ami fiar katak ema hotu-hotu iha valór hanesan no hatene katak importante atu respeita no valoriza kada indivíduu. Ami mos hatene katak mudansa mai liuhosi ema sira.",
+            "Ami fiar katak ema hotu-hotu iha valór hanesan no hatene katak importante atu respeita no valoriza kada indivíduu. Ami mós hatene katak mudansa mai liuhusi ema sira.",
             "Ami fiar ba valór igualdade, respeitu no dignifika ema hotu-hotu.",
             "Ami esforsa atu hakotu forma hotu-hotu husi opresaun, esploitasaun, diskriminasaun, asédiu, retaliasaun no intimidasaun.",
             "Ami kondena ho maka’as forma hotu-hotu husi esploitasaun no abuzu seksuál, liuliu hasoru labarik sira.",
@@ -441,16 +441,16 @@ const content: Record<Lang, AboutContent> = {
         {
           title: "Excelencia",
           points: [
-            "Ami desafia an rasik atu hetan nivel aas liu iha aprendizajen no desempenhu, ho aproveita espiritu umanu di’ak liu hodi kria impaktu pozitivu.",
-            "Ami valoriza inovasaun, pasiaun, kompaixaun, determinasaun no perseveransa.",
-            "Ami dezenvolve programa sira ne’ebé efetivu, efisiente no fó impaktu.",
+            "Ami dezafia an rasik atu hetan nivel aas liu iha aprendizajen no dezempeñu, ho aproveita espiritu umanu di’ak liu hodi kria impaktu pozitivu.",
+            "Ami valoriza inovasaun, paixaun, kompaixaun, determinasaun no perseveransa.",
+            "Ami dezenvolve programa sira-ne’ebé efetivu, efisiente no fó impaktu.",
             "Ami ajuda ema hodi atinje sira nia potensiál no enkoraja atu buka dezenvolvimentu profisionál no pesoál.",
           ],
         },
       ],
       code: [
-        "Ami hamriik hamutuk ho Konfederasaun CARE Internasional no tuir CARE International Code no ninia Kódigu Étika no Konduta.",
-        "Ami adere ba prinsípiu umanitáriu internasionál no padraun global oioin ne’ebé CARE promove no implementa.",
+        "Ami hamriik hamutuk ho Konfederasaun CARE Internasionál no tuir CARE International Code no ninia Kódigu Étika no Konduta.",
+        "Ami kaer metin ba prinsípiu umanitáriu internasionál no padraun global oin-oin ne’ebé CARE promove no implementa.",
         "Ami proteje propriedade intelektual CARE nian, informasaun konfidensiál, ekipamentu, marka (brand) no reputasaun organizasaun nian.",
       ],
     },
@@ -459,27 +459,27 @@ const content: Record<Lang, AboutContent> = {
       tagline: "Aprendizajen ne’ebé liga eskola, família no komunidade",
       paragraphs: [
         "Mídia Aprendizajen LAFAEK mak inisiativa edukasionál husi CARE iha Timor-Leste. Dezde 2001, LAFAEK fó materiál aprendizajen ho kualidade iha lian Tetun ba eskola, família no komunidade iha nasaun tomak. Projetu ne’e dezenvolve atu responde ba falta materiál leitura ne’ebé apropriadu ba idade labarik no relevante ho realidade lokál, liuliu iha área rurál no remota.",
-        "Nu’udar parte husi CARE nia kompromisu ba edukasaun no justisa sosial, LAFAEK promove literasia, numerasia, pensamentu kritiku, igualdade jéneru, koñesimentu kona-ba saúde, responsabilidade ambientál no inkluzaun sosial. Liuhosi konteúdu sira-ne’e, LAFAEK mós apoia bem-estar no lideransa feto no labarik feto, no enkoraja família atu partisipa iha labarik nia aprendizajen.",
-        "Durante liu dekada rua, LAFAEK dezenvolve husi revista ida ba labarik, Lafaek ba Labarik, ba plataforma mídia edukasionál ne’ebé inklui revista haat no konteúdu dijitál. CARE iha Timor-Leste implementa LAFAEK iha parseria ho Ministériu Edukasaun no ho apoiu husi Ministériu Negósiu Estranjeiru no Komérsiu Nova Zelándia. LAFAEK nia konteúdu aliña ho kurríkulu nasionál no prioridade dezenvolvimentu komunidade.",
+        "Nu’udar parte husi CARE nia kompromisu ba edukasaun no justisa sosiál, LAFAEK promove literasia, numerasia, pensamentu krítik, igualdade jéneru, koñesimentu kona-ba saúde, responsabilidade ambientál no inkluzaun sosiál. Liuhusi konteúdu sira-ne’e, LAFAEK mós apoia bem-estar no lideransa feto no labarik-feto, no enkoraja família atu partisipa iha labarik nia aprendizajen.",
+        "Liu ona dékada rua, LAFAEK dezenvolve husi revista ida ba labarik, Lafaek ba Labarik, ba plataforma mídia edukasionál ne’ebé inklui revista haat no konteúdu dijitál. CARE iha Timor-Leste implementa LAFAEK iha parseria ho Ministériu Edukasaun no ho apoiu husi Ministériu Negósiu Estranjeiru no Komérsiu Nova Zelándia. LAFAEK nia konteúdu aliña ho kurríkulu nasionál no prioridade dezenvolvimentu komunidade.",
       ],
     },
     magazines: {
       title: "Ami-nia Revista Sira",
       intro:
-        "Atu responde ba nesesidade aprendizajen iha etapa no kontestu oioin, LAFAEK publika revista haat, ho edisaun tolu kada tinan ba revista ida-idak. Konteúdu iha website ofisiál komplementa revista impressa no haluan oportunidade ba asesu informasaun edukativa.",
+        "Atu responde ba nesesidade aprendizajen iha etapa no kontestu oin-oin, LAFAEK publika revista haat, ho edisaun tolu kada tinan ba revista ida-idak. Konteúdu iha website ofisiál komplementa revista impressa no haluan oportunidade ba asesu informasaun edukativa.",
       audienceLabel: "Audiénsia-alvu",
-      reachLabel: "Alkance",
+      reachLabel: "alkansa",
       items: [
         {
           name: "LAFAEK Ki’ik",
           audience: "Labarik pre-eskolár no klase 1–2",
-          reach: "Liu 111.000 labarik",
+          reach: "Liu 111.000 kanorin",
           colour: magazineColours.kiik,
         },
         {
           name: "LAFAEK Prima",
-          audience: "Estudante klase 3–6",
-          reach: "Liu 133.000 estudante",
+          audience: "Kanorin klase 3–6",
+          reach: "Liu 133.000 kanorin",
           colour: magazineColours.prima,
         },
         {
@@ -496,12 +496,12 @@ const content: Record<Lang, AboutContent> = {
         },
       ],
       complement:
-        "Revista sira-ne’e komplementa malu: revista ba labarik no estudante haforsa aprendizajen; revista ba manorin apoia prátika hanorin; no revista ba komunidade ajuda família aplika koñesimentu iha moris loroloron.",
+        "Revista sira-ne’e komplementa malu: revista ba labarik no kanorin haforsa aprendizajen; revista ba manorin apoia prátika hanorin; no revista ba komunidade ajuda família aplika koñesimentu iha moris loroloron.",
     },
     approach: {
       title: "LAFAEK nia Abordajen",
       intro:
-        "Atu asegura katak materiál sira relevante, klaru no útil, LAFAEK servisu hamutuk ho parseiru sira, halo pre-teste no kontinua rona komunidade nia hanoin no nesesidade. Iha tempu hanesan, LAFAEK integra asuntu transversal sira hanesan Igualdade Jéneru, Protesaun Labarik, Akuntabilidade, Inkluzaun no Salvaguarda iha konteúdu hotu-hotu ne’ebé dezenvolve, atu promove valór positivu no mudansa sustentável iha komunidade.",
+        "Atu asegura katak materiál sira relevante, klaru no útil, LAFAEK servisu hamutuk ho parseiru sira, halo pre-teste no kontinua rona komunidade nia hanoin no nesesidade. Iha tempu hanesan, LAFAEK integra asuntu transversal sira hanesan Igualdade Jéneru, Protesaun Labarik, Akuntabilidade, Inkluzaun no Salvaguarda iha konteúdu hotu-hotu ne’ebé dezenvolve, atu promove valór pozitivu no mudansa sustentável iha komunidade.",
       steps: [
         {
           title: "Konteúdu Relevante",
@@ -509,7 +509,7 @@ const content: Record<Lang, AboutContent> = {
         },
         {
           title: "Pre-teste Konteúdu",
-          text: "Konteúdu testa ho estudante, profesór no inan-aman iha área urbana no remota, atu asegura katak klaru, atrativu no apropriadu.",
+          text: "Konteúdu testa ho kanorin, profesór no inan-aman iha área urbana no remota, atu asegura katak klaru, atrativu no apropriadu.",
         },
         {
           title: "Diálogu ho Komunidade",
@@ -520,7 +520,7 @@ const content: Record<Lang, AboutContent> = {
         "Hamutuk ho eskola, família no parseiru sira, LAFAEK liga aprendizajen iha sala-aula ho aprendizajen iha uma-laran no komunidade.",
       integrateTitle: "Integra Aprendizajen Importante",
       integrate: [
-        "Enkoraja estudante sira atu lori Lafaek Ki’ik, Lafaek Prima no materiál leitura seluk ba uma.",
+        "Enkoraja kanorin, manorin sira atu lori Lafaek Ki’ik, Lafaek Prima no materiál leitura seluk ba uma.",
         "Promove atividade leitura hamutuk entre labarik, inan-aman no maun-alin boot sira, hodi fó benefísiu ba ema hotu ne’ebé partisipa.",
         "Enkoraja inan-aman no adultu sira atu apoia labarik iha tarefa no atividade eskola.",
       ],
@@ -528,23 +528,23 @@ const content: Record<Lang, AboutContent> = {
     contribution: {
       title: "Kontribuisaun ba Aprendizajen",
       intro:
-        "LAFAEK sai rekursu edukasionál importante iha Timor-Leste, liuliu iha área sira-ne’ebé asesu ba livru no materiál aprendizajen sei limitadu. Peskiza no avaliasaun sira hatudu katak estudante, manorin no família sira uza no konfia ba LAFAEK ho nível aas.",
+        "LAFAEK sai rekursu edukasionál importante iha Timor-Leste, liuliu iha área sira-ne’ebé asesu ba livru no materiál aprendizajen sei limitadu. Peskiza no avaliasaun sira hatudu katak kanorin, manorin no família sira uza no konfia ba LAFAEK ho nível aas.",
       evalTitle: "Avaliasaun Intermedia (2021)",
       stats: [
         { number: "85,9%", label: "Uma-kain ho materiál leitura ne’ebé depende ba revista LAFAEK" },
-        { number: "78,2%", label: "Estudante ne’ebé lee LAFAEK iha uma" },
+        { number: "78,2%", label: "Kanorin ne’ebé lee LAFAEK iha uma" },
         { number: "68,5%", label: "Xefe uma-kain ne’ebé uza revista atu apoia labarik" },
       ],
       outro:
-        "Avaliasaun ne’e mós identifika relasaun pozitivu entre envolvimentu ho materiál LAFAEK no melloria iha rezultadu literasia. Rezultadu sira-ne’e hatudu katak LAFAEK relevante nu’udar rekursu ne’ebé apoia aprendizajen iha eskola no iha uma.",
+        "Avaliasaun ne’e mós identifika relasaun pozitivu entre envolvimentu ho materiál LAFAEK no mellora iha rezultadu literasia. Rezultadu sira-ne’e hatudu katak LAFAEK relevante nu’udar rekursu ne’ebé apoia aprendizajen iha eskola no iha uma.",
     },
     enterprise: {
       eyebrow: "Empreza Sosiál LAFAEK",
       title: "LAFAEK nia Futuru no Sustentabilidade",
       paragraphs: [
         "Atu kontinua servisu ne’e ba tempu naruk, CARE define planu atu transforma LAFAEK ba empreza sosiál ida. Modelu ne’e propoin atu jere reseita própria hodi komplementa apoiu husi doadór sira no hamenus dependénsia ba finansiamentu esternu.",
-        "Kompromisu prinsipál mak kontinua fó materiál gratuitamente ba eskola no komunidade iha área remota liu no ho kondisaun desfavoresida. Tanba ne’e, modelu propostu kombina reseita própria ho subsídiu husi doadór sira, atu sustentabilidade finanseira bele kontinua apoia LAFAEK nia objetivu sosial.",
-        "Planu orijinál preve tranzisaun jestaun husi CARE ba Empreza Sosiál LAFAEK, nu’udar organizasaun lokál ho governasaun no jestaun timoroan, durante períodu tinan lima, husi 2020 to’o 2024. Maski kalendáriu tranzisaun ne'ebé planeadu labele realiza tuir tempo tanba pandemia COVID-19, CARE no ekipa LAFAEK kontinua comprometidu atu realiza visaun ida-ne'e no estabelese empreza sosiál sustentável ida ne'ebé jere no lidera husi Timoroan sira rasik ba futuru.",
+        "Kompromisu prinsipál mak kontinua fó materiál gratuitamente ba eskola no komunidade iha área remota liu no ho kondisaun desfavoresida. Tanba ne’e, modelu propostu kombina reseita própria ho subsídiu husi doadór sira, atu sustentabilidade finanseira bele kontinua apoia LAFAEK nia objetivu sosiál.",
+        "Planu orijinál preve tranzisaun jestaun husi CARE ba Empreza Sosiál LAFAEK, nu’udar organizasaun lokál ho governasaun no jestaun Timoroan, durante períodu tinan lima, husi 2020 to’o 2024. Maski kalendáriu tranzisaun ne'ebé planeadu labele realiza tuir tempu tanba pandemia COVID-19, CARE no ekipa LAFAEK kontinua komprometidu atu realiza visaun ida-ne'e no estabelese empreza sosiál sustentável ida ne'ebé jere no lidera husi Timoroan sira rasik ba futuru.",
       ],
       visionTitle: "Vizaun",
       vision: "Sai lider iha área mídia no komunikasaun atu promove mudansa sosiál iha Timor-Leste.",
@@ -728,14 +728,19 @@ export default function AboutPage() {
                 </ul>
               </div>
 
+              {/* Mission card: quote and focus box sit together in the vertical centre of the card, text justified */}
               <div className="flex flex-col rounded-3xl border border-gray-200 p-6 shadow-sm md:p-8">
                 <h3 className={`mb-4 ${type.h3} ${headingColour}`}>{t.care.missionTitle}</h3>
-                <blockquote className={`mb-6 border-l-4 border-[#E07B00] pl-4 ${type.lead} italic text-gray-800`}>
-                  “{t.care.missionQuote}”
-                </blockquote>
-                <div className="mt-auto rounded-2xl bg-orange-50 p-6">
-                  <p className={`mb-2 ${type.label} text-[#E07B00]`}>{t.care.focusTitle}</p>
-                  <p className={`${type.body} text-gray-800`}>{t.care.focusText}</p>
+                <div className="flex flex-1 flex-col justify-center gap-6">
+                  <blockquote
+                    className={`border-l-4 border-[#E07B00] pl-4 ${type.lead} text-justify italic text-gray-800`}
+                  >
+                    “{t.care.missionQuote}”
+                  </blockquote>
+                  <div className="rounded-2xl bg-orange-50 p-6">
+                    <p className={`mb-2 ${type.label} text-[#E07B00]`}>{t.care.focusTitle}</p>
+                    <p className={`${type.body} text-justify text-gray-800`}>{t.care.focusText}</p>
+                  </div>
                 </div>
               </div>
             </div>

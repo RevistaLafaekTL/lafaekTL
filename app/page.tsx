@@ -153,9 +153,9 @@ export default function HomePage() {
       intro: {
         eyebrow: "Kona-ba LAFAEK",
         lead:
-          "LAFAEK Learning Media mak inisiativa edukasionál husi CARE iha Timor-Leste, ne’ebé dezenvolve iha tinan 2000 no hahú fahe revista dahuluk iha 2001. LAFAEK fornese materiál aprendizajen ho kualidade iha lian Tetun ba labarik, estudante, manorin, família no komunidade, liuliu iha área rurál no remota.",
+          "Mídia Aprendijajen LAFAEK mak inisiativa edukasionál husi CARE iha Timor-Leste, ne’ebé dezenvolve iha tinan 2000 no hahú fahe revista dahuluk iha 2001. LAFAEK fornese materiál aprendizajen ho kualidade iha lian Tetun ba labarik, kanorin, manorin, família no komunidade, liuliu iha área rurál no remota.",
         body:
-          "Liuhosi revista Lafaek Ki’ik, Lafaek Prima, Lafaek ba Manorin, Lafaek ba Komunidade no kontéudu dijitál, LAFAEK promove literasia, numerasia, igualdade jéneru, inkluzaun sosial, saúde no koñesimentu prátiku. Hamutuk ho Ministériu Edukasaun no parseiru sira, LAFAEK liga aprendizajen entre eskola, família no komunidade.",
+          "Liuhusi revista Lafaek Ki’ik, Lafaek Prima, Lafaek ba Manorin, Lafaek ba Komunidade no kontéudu dijitál, LAFAEK promove literasia, numerasia, igualdade jéneru, inkluzaun sosial, saúde no koñesimentu prátiku. Hamutuk ho Ministériu Edukasaun no parseiru sira, LAFAEK liga aprendizajen entre eskola, família no komunidade.",
         magazinesTitle: "Ami-nia revista",
         magazinesLink: "Haree revista sira →",
         focusTitle: "Saida mak ami promove",

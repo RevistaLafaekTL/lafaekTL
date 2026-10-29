@@ -204,7 +204,7 @@ const content: Record<Lang, JourneyContent> = {
         title: "LAFAEK nia Konsepsaun no Distribuisaun Dahuluk",
         blocks: [
           "Iha tinan 2000, CARE hahú dezenvolve Revista LAFAEK nu’udar resposta ba nesesidade edukasaun depois krize. Revista ne’e dezenvolve ho objetivu atu promove lian Tetun, apoia prosesu aprendizajen no lori mensajen kona-ba dame, unidade no esperansa ba labarik sira.",
-          "CARE forma ekipa Timoroan ne’ebé kompostu husi hakerek-na’in, ilustradór, dezenhadór gráfiku, espesialista edukasaun, pesoál kampu, motorista no ekipa lojístika. Ekipa ida-ne’e servisu hamutuk atu kria konteúdu no lori revista ba kanorin sira.",
+          "CARE forma ekipa Timoroan ne’ebé kompostu husi hakerek-na’in, ilustradór, dezeñador ba gráfiku, espesialista edukasaun, pesoál kampu, motorista no ekipa lojístika. Ekipa ida-ne’e servisu hamutuk atu kria konteúdu no lori revista ba kanorin sira.",
           "Naran “LAFAEK”, ne’ebé signifika krokodilu iha lian Tetun, hili tanba ninia ligasaun forte ho identidade, kultura no lenda Timor-Leste nian.",
           "Iha inísiu tinan 2001, Revista LAFAEK nia edisaun dahuluk hahú distribui. LAFAEK sai nu’udar publikasaun edukasionál iha lian Tetun ida ho alkansa nasionál no ajuda hahú kultura leitura foun iha eskola no família sira.",
         ],
@@ -215,7 +215,7 @@ const content: Record<Lang, JourneyContent> = {
         title: "Parseria ho Ministériu Edukasaun no Espansaun ba Eskola",
         blocks: [
           "Iha tinan 2004, Ministériu Edukasaun aproxima CARE atu dezenvolve Revista LAFAEK sai materiál didátiku suplementár ne’ebé bele apoia implementasaun kurríkulu nasionál.",
-          "Ho apoiu husi Banku Mundiál no parseria ho Ministériu Edukasaun, LAFAEK habelar ninia produtu atu atende nivel edukasaun oioin. Revista sira dezenvolve ba kanorin husi pre-eskolár to’o Ensinu Báziku, no mós ba manorin sira.",
+          "Ho apoiu husi Banku Mundiál no parseria ho Ministériu Edukasaun, LAFAEK habelar ninia produtu atu atende nivel edukasaun oin-oin. Revista sira dezenvolve ba kanorin husi pre-eskolár to’o Ensinu Báziku, no mós ba manorin sira.",
           "Iha períodu ida-ne’e, produtu LAFAEK inklui:",
           [
             "Lafaek Ki’ik ba kanorin pre-eskolár no klase 1–2",
@@ -277,7 +277,7 @@ const content: Record<Lang, JourneyContent> = {
           "Husi 2022, LAFAEK haforsa ninia servisu advokasia liuhusi Planu Advokasia 2022–2027. Planu ne’e orienta kolaborasaun ho Ministériu Edukasaun, Ministériu Solidariedade Sosiál no Inkluzaun, doadór, organizasaun sosiedade sivíl no parseiru dezenvolvimentu.",
           "Iha períodu ida-ne’e, LAFAEK mós haforsa prosesu lokalizasaun. Vizaun ba tempu naruk mak atu dezenvolve LAFAEK sai entidade lokál ne’ebé rejistadu no lidera husi Timoroan, ho kapasidade atu jere programa, rekursu no parseria rasik.",
           "Transformasaun dijitál sai parte importante husi jornada ida-ne’e. Ekipa hahú dezenvolve no hadi’a website LAFAEK, organiza biblioteka dijitál ba revista no esplora konseitu aplikasaun móvel ne’ebé bele fasilita asesu ba kontéudu edukasionál.",
-          "Esponsorizasaun no parseria mós kontinua dezenvolve. Organizasaun nasionál no internasionál oioin uza Revista LAFAEK atu fahe mensajen importante kona-ba edukasaun, saúde, nutrisaun, agrikultura, protesaun labarik, igualdade jéneru, inkluzaun no moris-di’ak.",
+          "Esponsorizasaun no parseria mós kontinua dezenvolve. Organizasaun nasionál no internasionál oin-oin uza Revista LAFAEK atu fahe mensajen importante kona-ba edukasaun, saúde, nutrisaun, agrikultura, protesaun labarik, igualdade jéneru, inkluzaun no moris-di’ak.",
         ],
       },
       {

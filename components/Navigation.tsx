@@ -285,7 +285,7 @@ useEffect(()=>{
               {
                 label:"Ami-nia Ekipa",
                 href:"/our-team",
-                description:"Conhece ema sira ne'ebé halo servisu Lafaek."
+                description:"Koñese, sira ne'ebé halo servisu Lafaek."
               },
               {
                 label:"Ami-nia Jornada",

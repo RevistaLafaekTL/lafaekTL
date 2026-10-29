@@ -37,7 +37,7 @@ const SUBJECTS: Record<LearningCategorySlug, SubjectConfig> = {
   },
   "social-science": {
     titleEn: "Social Science",
-    titleTet: "Siénsia Sosial",
+    titleTet: "Siénsia Sosiál",
     descEn: "People, communities, culture, and how society works.",
     descTet: "Ema, komunidade, kultura, no oinsá sosiedade halo servisu.",
     image: "/learning/icons/socialscience.png",
@@ -81,7 +81,7 @@ const SUBJECTS: Record<LearningCategorySlug, SubjectConfig> = {
     titleEn: "Creativity",
     titleTet: "Kreatividade",
     descEn: "Art, making, music, and imagination projects.",
-    descTet: "Arte, halo buat, músika, no projetu imajinasaun.",
+    descTet: "Arte, músika, no projetu imajinasaun.",
     image: "/learning/icons/creativity.png",
   },
 };
@@ -133,7 +133,7 @@ export default function LearningSubjectPage({
       publishedItems: "Item publika sira",
       categoryPlan: "Koleksaun kategoría",
       categoryPlanText:
-        "Item sira ne’ebé aumenta iha admin page sei sai barak liu no bele loke iha leitor estilo flipbook.",
+        "Item sira-ne’ebé aumenta iha admin page sei sai barak liu no bele loke iha leitor estilo flipbook.",
     },
   } as const;
 
