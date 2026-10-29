@@ -28,7 +28,7 @@ const slides: Slide[] = [
     alt: { en: "Lafaek team in the field", tet: "Ekipa Lafaek iha kampu" },
     title: {
       en: "Welcome to LAFAEK Learning Media",
-      tet: "Benvindu mai Mídia Aprendijajen LAFAEK",
+      tet: "Benvindu mai Mídia Aprendizajen LAFAEK",
     },
     line: {
       en: "Bringing Education to Life",
