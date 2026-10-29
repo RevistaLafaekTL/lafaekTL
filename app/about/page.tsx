@@ -112,7 +112,7 @@ const content: Record<Lang, AboutContent> = {
       eyebrow: "About CARE in Timor-Leste",
       whoTitle: "Who We Are",
       whoText:
-        "CARE International is a global confederation of independent national organisations in many countries. CARE has worked in Timor-Leste since 1994. Its programmes focus on education, health, women's economic empowerment and strengthening women's voices, including humanitarian assistance.",
+        "CARE Timor Leste is a global confederation of independent national organisations in many countries. CARE has worked in Timor-Leste since 1994. Its programmes focus on education, health, women's economic empowerment and strengthening women's voices, including humanitarian assistance.",
       stats: [
         { number: "499,277", label: "People reached by CARE's programmes" },
         { number: "49%", label: "Women and girls as a percentage of the total" },
@@ -347,7 +347,7 @@ const content: Record<Lang, AboutContent> = {
       eyebrow: "Kona-ba CARE iha Timor-Leste",
       whoTitle: "Se Mak Ami",
       whoText:
-        "CARE International hanesan konfederasaun global ne’ebé kompostu husi organizasaun nasional independente sira iha nasaun oin-oin. CARE servisu iha Timor-Leste dezde 1994. Nia programa foka ba edukasaun, saúde, hakbiit ekonomia feto, no hakbiit feto sira ninia lian inklui asistensia umanitária.",
+        "CARE iha Timor-Leste hanesan konfederasaun global ne’ebé kompostu husi organizasaun nasional independente sira iha nasaun oin-oin. CARE servisu iha Timor-Leste dezde 1994. Nia programa foka ba edukasaun, saúde, hakbiit ekonomia feto, no hakbiit feto sira ninia lian inklui asistensia umanitária.",
       stats: [
         { number: "499.277", label: "Ema ne’ebé hetan alkansa husi CARE nia programa" },
         { number: "49%", label: "Persentajen feto no labarik-feto husi totalidade" },
@@ -449,7 +449,7 @@ const content: Record<Lang, AboutContent> = {
         },
       ],
       code: [
-        "Ami hamriik hamutuk ho Konfederasaun CARE Internasionál no tuir CARE International Code no ninia Kódigu Étika no Konduta.",
+        "Ami hamriik hamutuk ho Konfederasaun CARE iha Timor-Leste no tuir CARE iha Timor-Leste Code no ninia Kódigu Étika no Konduta.",
         "Ami kaer metin ba prinsípiu umanitáriu internasionál no padraun global oin-oin ne’ebé CARE promove no implementa.",
         "Ami proteje propriedade intelektual CARE nian, informasaun konfidensiál, ekipamentu, marka (brand) no reputasaun organizasaun nian.",
       ],
