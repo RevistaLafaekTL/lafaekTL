@@ -301,7 +301,7 @@ useEffect(()=>{
             ]
           },
           extras:{
-            title:"No seluk tan",
+            title:"Adisionál",
             description:"Oportunidade, apoiu, no maneira atu kontaktu ho Revista Lafaek.",
             links:[
               {
