@@ -4,7 +4,7 @@ import {notFound} from "next/navigation"
 
 import FlipBookViewer from "@/components/books/FlipBookViewer"
 
-type Series = "LK" | "LBK" | "LP" | "LM"
+type Series = "LK" | "LBK" | "LP" | "LBM" | "LM" | "LMB"
 
 type PublicMagazine = {
   id:string
@@ -111,19 +111,19 @@ const seriesLabel = (s:Series) =>
         en:"Lafaek Prima",
         tet:"Lafaek Prima",
       }
-    : s === "LM"
+    : s === "LBM" || s === "LM" || s === "LMB"
     ? {
-        en:"Manorin",
-        tet:"Manorin",
+        en:"Lafaek ba Manorin",
+        tet:"Lafaek ba Manorin",
       }
     : s === "LBK"
     ? {
-        en:"Lafaek Komunidade",
-        tet:"Lafaek Komunidade",
+        en:"Lafaek ba Komunidade",
+        tet:"Lafaek ba Komunidade",
       }
     : {
-        en:"Lafaek Kiik",
-        tet:"Lafaek Kiik",
+        en:"Lafaek Ki'ik",
+        tet:"Lafaek Ki’ik",
       }
 
 const makeName = (m:PublicMagazine) => {

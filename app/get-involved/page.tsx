@@ -44,7 +44,7 @@ const { language } = useLanguage()
             { name: "topic", label: "Proposed Topic/Content Idea", type: "textarea", required: true },
             {
               name: "audience",
-              label: "Target Audience (e.g., Lafaek Kiik, Prima, Manorin)",
+              label: "Target Audience (e.g., Lafaek Ki'ik, Lafaek Prima, Lafaek ba Manorin)",
               type: "text",
               required: false,
             },
@@ -171,7 +171,7 @@ const { language } = useLanguage()
             { name: "topic", label: "Topiku/Ideia Konteúdu Propostu", type: "textarea", required: true },
             {
               name: "audience",
-              label: "Públiku Alvu (ez., Lafaek Kiik, Prima, Manorin)",
+              label: "Públiku Alvu (ez., Lafaek Ki’ik, Lafaek Prima, Lafaek ba Manorin)",
               type: "text",
               required: false,
             },

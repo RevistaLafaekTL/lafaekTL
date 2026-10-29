@@ -60,7 +60,7 @@ const LAFAEK={
 const ui={
   en:{
     title:"Lafaek Magazines",
-    intro:"Explore Lafaek Kiik, Lafaek Prima, Manorin, and Komunidade. Read public magazines online, view sample pages, or apply for full school access where approval is required.",
+    intro:"Explore Lafaek Ki'ik, Lafaek Prima, Lafaek ba Manorin and Lafaek ba Komunidade. Read public magazines online, view sample pages, or apply for full school access where approval is required.",
     sampleButton:"View sample pages",
     applyButton:"Apply for full access",
     archiveButton:"View full archive",
@@ -83,7 +83,7 @@ const ui={
   },
   tet:{
     title:"Revista Lafaek sira",
-    intro:"Explora Lafaek Ki'ik, Lafaek Prima, Manorin, no Komunidade. Lee revista públiku online, haree pájina amostra, ka aplika atu hetan asesu kompletu bainhira presiza aprovasaun.",
+    intro:"Explora Lafaek Ki'ik, Lafaek Prima, Lafaek ba Manorin no Lafaek ba Komunidade. Lee revista públiku online, haree pájina amostra, ka aplika atu hetan asesu kompletu bainhira presiza aprovasaun.",
     sampleButton:"Haree pájina amostra",
     applyButton:"Aplika hodi asesu kompletu",
     archiveButton:"Haree lista kompletu",
@@ -112,10 +112,10 @@ const seriesInfo:Record<
 >={
   LK:{
     en:{
-      title:"Lafaek Kiik",
+      title:"Lafaek Ki'ik",
       body:
         "Audience: Preschool to Year 2.\n\n" +
-        "Lafaek Kiik helps young learners build early reading, counting, thinking, and social skills through simple Tetun stories, illustrations, games, and activities.",
+        "Lafaek Ki'ik helps young learners build early reading, counting, thinking, and social skills through simple Tetun stories, illustrations, games, and activities.",
     },
     tet:{
       title:"Lafaek Ki'ik",
@@ -140,10 +140,10 @@ const seriesInfo:Record<
   },
   LBM:{
     en:{
-      title:"Lafaek Manorin",
+      title:"Lafaek ba Manorin",
       body:
         "Audience: Teachers.\n\n" +
-        "Lafaek Manorin gives teachers practical classroom ideas, activities, lesson support, and strategies for literacy, numeracy, science, and inclusive education.",
+        "Lafaek ba Manorin gives teachers practical classroom ideas, activities, lesson support, and strategies for literacy, numeracy, science, and inclusive education.",
     },
     tet:{
       title:"Lafaek ba Manorin",
@@ -154,16 +154,16 @@ const seriesInfo:Record<
   },
   LBK:{
     en:{
-      title:"Lafaek Komunidade",
+      title:"Lafaek ba Komunidade",
       body:
         "Audience: Parents, caregivers, and community members.\n\n" +
-        "Lafaek Komunidade supports families with practical information about children's learning, wellbeing, health, school attendance, and community life.",
+        "Lafaek ba Komunidade supports families with practical information about children's learning, wellbeing, health, school attendance, and community life.",
     },
     tet:{
-      title:"Lafaek ba Komnidade",
+      title:"Lafaek ba Komunidade",
       body:
         "Audiénsia: Inan-aman, kuidadu-na'in, no komunidade.\n\n" +
-        "Lafaek ba Komnidade suporta família sira ho informasaun prátiku kona-ba labarik nia aprendizajen, moris-di'ak, saúde, prezensa iha eskola, no moris komunidade.",
+        "Lafaek ba Komunidade suporta família sira ho informasaun prátiku kona-ba labarik nia aprendizajen, moris-di'ak, saúde, prezensa iha eskola, no moris komunidade.",
     },
   },
 };
@@ -188,14 +188,14 @@ function seriesLabel(series:Series){
   }
 
   if(series==="LBM"){
-    return{en:"Manorin",tet:"Lafaek ba Manorin"};
+    return{en:"Lafaek ba Manorin",tet:"Lafaek ba Manorin"};
   }
 
   if(series==="LBK"){
-    return{en:"Lafaek Komunidade",tet:"Lafaek ba Komnidade"};
+    return{en:"Lafaek ba Komunidade",tet:"Lafaek ba Komunidade"};
   }
 
-  return{en:"Lafaek Kiik",tet:"Lafaek Ki'ik"};
+  return{en:"Lafaek Ki'ik",tet:"Lafaek Ki'ik"};
 }
 
 function buildFileUrl(src?:string):string{

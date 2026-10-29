@@ -66,10 +66,10 @@ type PresignResponse = {
 }
 
 const seriesOptions:Array<{value:Series;label:string}> = [
-  {value:"LK",label:"Lafaek Kiik"},
-  {value:"LBK",label:"Lafaek Komunidade"},
+  {value:"LK",label:"Lafaek Ki'ik"},
+  {value:"LBK",label:"Lafaek ba Komunidade"},
   {value:"LP",label:"Lafaek Prima"},
-  {value:"LBM",label:"Manorin"},
+  {value:"LBM",label:"Lafaek ba Manorin"},
 ]
 
 const languageOptions:MagazineLanguage[] = [
@@ -104,11 +104,11 @@ const seriesLabel = (s:string) =>
   s === "LP"
     ? "Lafaek Prima"
 : s === "LBM"
-    ? "Manorin"
+    ? "Lafaek ba Manorin"
     : s === "LBK"
-    ? "Lafaek Komunidade"
+    ? "Lafaek ba Komunidade"
     : s === "LK"
-    ? "Lafaek Kiik"
+    ? "Lafaek Ki'ik"
     : "Unknown Series"
 
 const deriveFromCode = (codeRaw:string) => {
@@ -949,7 +949,7 @@ const filteredItems = useMemo(() => {
   </option>
 
   <option value="LK">
-    Lafaek Kiik
+    Lafaek Ki'ik
   </option>
 
   <option value="LP">
@@ -957,11 +957,11 @@ const filteredItems = useMemo(() => {
   </option>
 
   <option value="LBM">
-    Manorin
+    Lafaek ba Manorin
   </option>
 
   <option value="LBK">
-    Komunidade
+    Lafaek ba Komunidade
   </option>
 </select>
               {" "}• Visible:
@@ -1207,7 +1207,7 @@ handleDeleteMagazine(m.id || "")
   className="w-full rounded-md border border-slate-300 px-2 py-1.5 text-sm"
 >
   <option value="LK">
-    Lafaek Kiik
+    Lafaek Ki'ik
   </option>
 
   <option value="LP">
@@ -1215,11 +1215,11 @@ handleDeleteMagazine(m.id || "")
   </option>
 
   <option value="LBM">
-    Manorin
+    Lafaek ba Manorin
   </option>
 
   <option value="LBK">
-    Lafaek Komunidade
+    Lafaek ba Komunidade
   </option>
 </select>
 

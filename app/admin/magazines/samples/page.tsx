@@ -5,7 +5,7 @@ import {useEffect,useState,ChangeEvent}from "react";
 
 const S3_ORIGIN="https://lafaek-media.s3.ap-southeast-2.amazonaws.com";
 
-type Series="LK"|"LBK"|"LP"|"LM";
+type Series="LK"|"LBK"|"LP"|"LBM"|"LM"|"LMB";
 
 type SampleItem={
   id:string;
@@ -87,11 +87,11 @@ const monthName=(n:string)=>{
 const seriesLabel=(s:Series)=>
   s==="LP"
     ? {en:"Lafaek Prima",tet:"Lafaek Prima"}
-    : s==="LM"
-    ? {en:"Manorin",tet:"Manorin"}
+    : s==="LBM"||s==="LM"||s==="LMB"
+    ? {en:"Lafaek ba Manorin",tet:"Lafaek ba Manorin"}
     : s==="LBK"
-    ? {en:"Lafaek Komunidade",tet:"Lafaek Komunidade"}
-    : {en:"Lafaek Kiik",tet:"Lafaek Kiik"};
+    ? {en:"Lafaek ba Komunidade",tet:"Lafaek ba Komunidade"}
+    : {en:"Lafaek Ki'ik",tet:"Lafaek Ki'ik"};
 
 const buildHumanName=(code:string)=>{
   const[series,issue="",year=""]=code.split("-");

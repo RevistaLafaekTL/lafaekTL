@@ -571,10 +571,10 @@ export default function HomePage() {
                         ? magazine.titleTet || magazine.titleEn || magazine.code
                         : magazine.titleEn || magazine.code;
                     const seriesNames: Record<string, { en: string; tet: string }> = {
-                      LK:  { en: "Lafaek Kiik",       tet: "Lafaek Kiik" },
+                      LK:  { en: "Lafaek Ki'ik",          tet: "Lafaek Ki’ik" },
                       LP:  { en: "Lafaek Prima",       tet: "Lafaek Prima" },
-                      LBM: { en: "Manorin",            tet: "Manorin" },
-                      LBK: { en: "Lafaek Komunidade",  tet: "Lafaek Komunidade" },
+                      LBM: { en: "Lafaek ba Manorin",     tet: "Lafaek ba Manorin" },
+                      LBK: { en: "Lafaek ba Komunidade",  tet: "Lafaek ba Komunidade" },
                     };
                     const seriesLabel =
                       seriesNames[magazine.series]?.[L] ?? magazine.series ?? "";

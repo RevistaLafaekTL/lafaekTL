@@ -138,17 +138,17 @@ const seriesLabel = (s:Series) =>
       }
     : s === "LBM"
     ? {
-        en:"Manorin",
-        tet:"Manorin",
+        en:"Lafaek ba Manorin",
+        tet:"Lafaek ba Manorin",
       }
     : s === "LBK"
     ? {
-        en:"Lafaek Komunidade",
-        tet:"Lafaek Komunidade",
+        en:"Lafaek ba Komunidade",
+        tet:"Lafaek ba Komunidade",
       }
     : {
-        en:"Lafaek Kiik",
-        tet:"Lafaek Kiik",
+        en:"Lafaek Ki'ik",
+        tet:"Lafaek Ki’ik",
       }
 
       
