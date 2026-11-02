@@ -40,7 +40,7 @@ export default function LearningPage() {
     { slug: "mathematics", titleEn: "Mathematics", titleTet: "Matemátika", image: "/learning/icons/maths.png" },
     { slug: "health", titleEn: "Health", titleTet: "Saúde", image: "/learning/icons/Health.png" },
     { slug: "games", titleEn: "Games", titleTet: "Jogu sira", image: "/learning/icons/games1.png" },
-    { slug: "creativity", titleEn: "Creativity", titleTet: "Kreatividade", image: "/learning/icons/Creativity.png" },
+    { slug: "creativity", titleEn: "Creativity", titleTet: "Kreatividade", image: "/learning/icons/creativity.png" },
   ];
 
   return (
