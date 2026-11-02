@@ -361,25 +361,38 @@ export default function ImpactAdminPage(){
     setError(undefined);
   };
 
+  // ── handleAddNewSubmit ─────────────────────────────────────────────────────
+  // New stories go to the TOP of the list (order 1) and every existing story
+  // moves down one place. The new story is opened automatically and the page
+  // scrolls to the top so it can be edited and saved straight away.
   const handleAddNewSubmit=()=>{
-    if(!newItem.titleEn.trim()){
-      setMessage("Please add at least an English title before creating the story.");
+    if(!newItem.titleTet.trim()&&!newItem.titleEn.trim()){
+      setMessage("Please add a title (Tetun or English) before creating the story.");
       return;
     }
+    const newId=`impact-temp-${Date.now()}`;
     setItems((prev)=>{
-      const maxOrder=prev.length?Math.max(...prev.map((i)=>i.order||0)):0;
       const itemToAdd={
         ...newItem,
-        id:`impact-temp-${Date.now()}`,
+        id:newId,
         status:newItem.status||"hidden",
         visible:Boolean(newItem.visible),
-        order:maxOrder+1,
+        order:1,
       } as ImpactItem;
-      return[...prev,itemToAdd];
+      const shifted=prev.map((i)=>({...i,order:(i.order||0)+1}));
+      return[itemToAdd,...shifted];
+    });
+    setDirtyIds((prev)=>{
+      const next=new Set(prev);
+      next.add(newId);
+      return next;
     });
     setShowAddModal(false);
     setHasChanges(true);
-    setMessage("Story created locally. Click Save Changes to publish the update to AWS.");
+    setSortMode("editor");
+    setExpandedStoryId(newId);
+    setMessage("Story created at the top of the list. Click Save Changes to save it to AWS.");
+    if(typeof window!=="undefined"){window.scrollTo({top:0,behavior:"smooth"});}
   };
 
   const handleDelete=(id:string)=>{
@@ -817,7 +830,11 @@ export default function ImpactAdminPage(){
               const lastUpdatedLabel=formatLastUpdated(item);
               const missingCover=item.visible&&!imageSrc;
               const isDraft=status==="draft";
-              const canPublish=!!(item.titleEn?.trim()&&item.excerptEn?.trim()&&item.date);
+              // Tetun is the main language, so a draft can be published with a
+              // title and excerpt in EITHER Tetun or English (English is optional).
+              const hasTitle=!!(item.titleTet?.trim()||item.titleEn?.trim());
+              const hasExcerpt=!!(item.excerptTet?.trim()||item.excerptEn?.trim());
+              const canPublish=hasTitle&&hasExcerpt&&!!item.date;
 
               return(
                 <div key={item.id} className="rounded-lg border border-slate-200 bg-white shadow-sm">
@@ -873,7 +890,7 @@ export default function ImpactAdminPage(){
                               type="button"
                               onClick={()=>{
                                 if(!canPublish){
-                                  setMessage("To publish: add Title (English), Excerpt (English), and Date, then Save Changes.");
+                                  setMessage("To publish: add a Title and an Excerpt (Tetun or English) and a Date, then Save Changes.");
                                   return;
                                 }
                                 handlePublish(item.id);
