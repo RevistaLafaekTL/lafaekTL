@@ -10,7 +10,7 @@ import {useAuth}from "react-oidc-context";
 import {canAccessAdminArea,getUserDisplayName}from "@/lib/auth";
 
 type Lang="en"|"tet";
-type MenuKey="programs"|"keepSafe"|"about"|"extras"|"admin"|null;
+type MenuKey="programs"|"keepSafe"|"about"|"admin"|null;
 
 type NavLink={
   label:string;
@@ -72,7 +72,6 @@ useEffect(()=>{
         programs:"Programs",
         keepSafe:"Keep Safe Online",
         about:"About",
-        extras:"Extras",
         admin:"Admin",
         signIn:"Login / Signup",
         signOut:"Sign out",
@@ -168,23 +167,6 @@ useEffect(()=>{
 
             ]
           },
-          extras:{
-            title:"Extras",
-            description:"Extra opportunities, support, and ways to connect with Lafaek.",
-            links:[
-              {
-                label:"Services",
-                href:"/services",
-                description:"Work with the Lafaek creative team."
-              },
-
-              {
-                label:"Careers",
-                href:"/careers",
-                description:"Jobs, volunteering, and creative opportunities."
-              }
-            ]
-          },
           admin:{
             title:"Admin",
             description:"Manage Lafaek website content.",
@@ -204,7 +186,6 @@ useEffect(()=>{
         programs:"Programa sira",
         keepSafe:"Manten seguransa iha online",
         about:"Kona-ba",
-        extras:"Adisionál",
         admin:"Admin",
         signIn:"Tama / Rejistu",
         signOut:"Sai",
@@ -300,23 +281,6 @@ useEffect(()=>{
 
             ]
           },
-          extras:{
-            title:"Adisionál",
-            description:"Oportunidade, apoiu, no maneira atu kontaktu ho Revista Lafaek.",
-            links:[
-              {
-                label:"Servisu sira",
-                href:"/services",
-                description:"Servisu hamutuk ho ekipa kriativu Lafaek."
-              },
-
-              {
-                label:"Karreira",
-                href:"/careers",
-                description:"Servisu, voluntáriu, no oportunidade kriativu."
-              }
-            ]
-          },
           admin:{
             title:"Admin",
             description:"Jere konteúdu website Lafaek nian.",
@@ -392,7 +356,8 @@ useEffect(()=>{
     {key:"programs" as const,label:t.programs,group:t.groups.programs},
     {key:"keepSafe" as const,label:t.keepSafe,group:t.groups.keepSafe},
     {key:"about" as const,label:t.about,group:t.groups.about},
-    {key:"extras" as const,label:t.extras,group:t.groups.extras},
+    // Extras (Services, Careers) removed from the menu for now. The pages
+    // still exist at /services and /careers until a decision is made.
     ...(canAccessAdmin?[{key:"admin" as const,label:t.admin,group:t.groups.admin}]:[])
   ];
 
@@ -486,7 +451,7 @@ useEffect(()=>{
   );
 
   const renderMobileGroup=(menu:{
-    key:"programs"|"keepSafe"|"about"|"extras"|"admin";
+    key:"programs"|"keepSafe"|"about"|"admin";
     label:string;
     group:NavGroup;
   })=>(

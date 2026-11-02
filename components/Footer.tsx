@@ -30,9 +30,7 @@ export function Footer(){
         about:[
           {label:"About Us",href:"/about"},
           {label:"Our Journey",href:"/our-journey"},
-          {label:"Our Team",href:"/our-team"},
-          {label:"Services",href:"/services"},
-          {label:"Careers",href:"/careers"}
+          {label:"Our Team",href:"/our-team"}
         ]
       }
     },
@@ -53,9 +51,7 @@ export function Footer(){
         about:[
           {label:"Kona-ba Ami",href:"/about"},
           {label:"Ami-nia Viajen",href:"/our-journey"},
-          {label:"Ami-nia Ekipa",href:"/our-team"},
-          {label:"Servisu sira",href:"/services"},
-          {label:"Karreira",href:"/careers"}
+          {label:"Ami-nia Ekipa",href:"/our-team"}
         ]
       }
     }
