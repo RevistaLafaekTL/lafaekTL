@@ -6,7 +6,6 @@ import {useLanguage}from "@/lib/LanguageContext";
 type FooterLink={
   label:string;
   href:string;
-  note?:string;
 };
 
 export function Footer(){
@@ -18,34 +17,22 @@ export function Footer(){
       description:"Supporting children and families in Timor-Leste through education, creativity, and community engagement.",
       programs:"Programs",
       about:"About",
-      extras:"Extras",
-      admin:"Admin",
       contactHeading:"Contact",
       contactBody:"For partnership, sponsorship, or media enquiries, please contact the Lafaek team.",
       contactCta:"Go to Contact Page",
-      comingSoon:"Coming soon",
       groups:{
         programs:[
           {label:"Magazines",href:"/publication/magazines"},
           {label:"Impact Stories",href:"/stories/impact"},
           {label:"News",href:"/stories/news"},
-          {label:"Videos",href:"/videos"},
-          {label:"Learning",href:"/learning"},
-          {label:"Books",href:"/books"}
+          {label:"Learning",href:"/learning"}
         ],
         about:[
+          {label:"About Us",href:"/about"},
           {label:"Our Journey",href:"/our-journey"},
           {label:"Our Team",href:"/our-team"},
-          {label:"About Us",href:"/about"},
-          {label:"Services",href:"/services"},
-          {label:"Reports",href:"/reports",note:"Coming soon"}
-        ],
-        extras:[
           {label:"Services",href:"/services"},
           {label:"Careers",href:"/careers"}
-        ],
-        admin:[
-          {label:"Admin Dashboard",href:"/admin"}
         ]
       }
     },
@@ -53,34 +40,22 @@ export function Footer(){
       description:"Apoia labarik no família sira iha Timor-Leste liuhusi edukasaun, Kriatividade, no envolvimentu komunidade.",
       programs:"Programa sira",
       about:"Kona-ba Ami",
-      extras:"Tanba seluk",
-      admin:"Admin",
       contactHeading:"Kontaktu",
       contactBody:"Hakarak parseria, sponsor, ka enkuadramentu konaba média, favór kontaktu Ekipa Lafaek.",
       contactCta:"Ba iha parte Pajina kontaktu nian",
-      comingSoon:"Sei mai",
       groups:{
         programs:[
           {label:"Revista",href:"/publication/magazines"},
           {label:"Istória Impaktu",href:"/stories/impact"},
           {label:"Notísia",href:"/stories/news"},
-          {label:"Vídeu",href:"/videos"},
-          {label:"Aprendizajen",href:"/learning"},
-          {label:"Livru sira",href:"/books"}
+          {label:"Aprendizajen",href:"/learning"}
         ],
         about:[
+          {label:"Kona-ba Ami",href:"/about"},
           {label:"Ami-nia Viajen",href:"/our-journey"},
           {label:"Ami-nia Ekipa",href:"/our-team"},
-          {label:"Kona-ba Ami",href:"/about"},
-          {label:"Servisu sira",href:"/services"},
-          {label:"Relatóriu sira",href:"/reports",note:"Sei mai"}
-        ],
-        extras:[
           {label:"Servisu sira",href:"/services"},
           {label:"Karreira",href:"/careers"}
-        ],
-        admin:[
-          {label:"Admin Dashboard",href:"/admin"}
         ]
       }
     }
@@ -94,14 +69,9 @@ export function Footer(){
         <li key={link.href}>
           <Link
             href={link.href}
-            className="inline-flex items-center gap-2 hover:text-white hover:underline"
+            className="hover:text-white hover:underline"
           >
-            <span>{link.label}</span>
-            {link.note&&(
-              <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] uppercase tracking-wide text-gray-300">
-                {link.note}
-              </span>
-            )}
+            {link.label}
           </Link>
         </li>
       ))}
@@ -111,8 +81,8 @@ export function Footer(){
   return(
     <footer className="bg-[#0F172A] text-white py-12 px-4 mt-16">
       <div className="max-w-7xl mx-auto border-b border-white/10 pb-8">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-5">
-          <div className="lg:col-span-1">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
             <Link href="/" className="inline-block">
               <h3 className="text-xl font-bold mb-4">Lafaek TL</h3>
             </Link>
@@ -129,16 +99,6 @@ export function Footer(){
           <div>
             <h4 className="font-semibold mb-4 text-white">{t.about}</h4>
             {renderLinks(t.groups.about)}
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-4 text-white">{t.extras}</h4>
-            {renderLinks(t.groups.extras)}
-
-            <div className="mt-6">
-              <h4 className="font-semibold mb-4 text-white">{t.admin}</h4>
-              {renderLinks(t.groups.admin)}
-            </div>
           </div>
 
           <div>
