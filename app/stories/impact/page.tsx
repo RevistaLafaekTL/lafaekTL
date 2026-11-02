@@ -42,6 +42,28 @@ function toAssetUrl(src?:string){
   return `${S3_ORIGIN}/${clean.replace(/^\/+/,"")}`;
 }
 
+// Returns the first piece of text that isn't blank. Used so a story written
+// only in Tetun still shows its Tetun text when the site is in English, and
+// a story written only in English still shows in Tetun mode.
+function pickText(...values:(string|undefined)[]){
+  for(const v of values){
+    if(typeof v==="string"&&v.trim()){return v;}
+  }
+  return "";
+}
+
+// Shown when a story has no image, or its image fails to load, so every card
+// keeps the same shape and no broken-image icon appears.
+function ImagePlaceholder(){
+  return(
+    <div className="flex h-56 w-full items-center justify-center bg-gradient-to-br from-[#E8F5EE] to-[#EAF2FD]">
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-[#9DB7A8]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.16-5.16a2.25 2.25 0 013.18 0l5.16 5.16m-1.5-1.5l1.41-1.41a2.25 2.25 0 013.18 0l2.91 2.91M3.75 21h16.5A1.5 1.5 0 0021.75 19.5V4.5A1.5 1.5 0 0020.25 3H3.75A1.5 1.5 0 002.25 4.5v15A1.5 1.5 0 003.75 21zM15.75 8.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
+      </svg>
+    </div>
+  );
+}
+
 function normaliseImages(raw:any){
   const rawImages=Array.isArray(raw?.images)
     ? raw.images.filter((img:any)=>typeof img==="string"&&img.trim()).map((img:string)=>img.trim())
@@ -103,12 +125,15 @@ export default function ImpactPage(){
 
   const[searchTerm,setSearchTerm]=useState<string>("");
   const[sortMode,setSortMode]=useState<"latest"|"custom"|"az">("latest");
+  // Story ids whose image failed to load (missing or deleted from S3)
+  const[failedImages,setFailedImages]=useState<Set<string>>(new Set());
 
   const labels={
     en:{
       heading:"Impact & Success Stories",
       intro:"Read stories of positive change, educational success, community impact and personal journeys from across Timor-Leste.",
       readMore:"Read More",
+      untitled:"Untitled story",
       viewPdf:"View PDF",
       shareStory:"Share Your Story",
       searchPlaceholder:"Search impact & success stories...",
@@ -125,6 +150,7 @@ export default function ImpactPage(){
       heading:"Istória kona-ba ami-nia Impaktu",
       intro:"Revista Lafaek ninia impaktu ba kanorin, manorin no komunidade sira.",
       readMore:"Lee liu tan",
+      untitled:"Istória la iha títulu",
       viewPdf:"Haree PDF",
       shareStory:"Fahe Ita-nia Istória",
       searchPlaceholder:"Buka istória impaktu no suksesu...",
@@ -171,10 +197,10 @@ export default function ImpactPage(){
 
             const visible=raw.visible!==false;
 
-            const titleEn=String(raw.titleEn??"Untitled");
+            const titleEn=typeof raw.titleEn==="string"?raw.titleEn:"";
             const titleTet=typeof raw.titleTet==="string"?raw.titleTet:undefined;
 
-            const excerptEn=String(raw.excerptEn??"");
+            const excerptEn=typeof raw.excerptEn==="string"?raw.excerptEn:"";
             const excerptTet=typeof raw.excerptTet==="string"?raw.excerptTet:undefined;
 
             const bodyEn=typeof raw.bodyEn==="string"?raw.bodyEn:undefined;
@@ -245,9 +271,9 @@ export default function ImpactPage(){
 
   const getDisplayTitle=(item:ImpactItem)=>{
     const base=L==="tet"
-      ? item.titleTet||item.titleEn
-      : item.titleEn;
-    return String(base||"").toLowerCase();
+      ? pickText(item.titleTet,item.titleEn)
+      : pickText(item.titleEn,item.titleTet);
+    return base.toLowerCase();
   };
 
   const filteredAndSortedItems=useMemo(()=>{
@@ -360,15 +386,15 @@ export default function ImpactPage(){
         {!loading&&!error&&filteredAndSortedItems.length>0&&(
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
             {filteredAndSortedItems.map((item)=>{
-              const title=L==="tet"
-                ? item.titleTet||item.titleEn
-                : item.titleEn;
+              const title=(L==="tet"
+                ? pickText(item.titleTet,item.titleEn)
+                : pickText(item.titleEn,item.titleTet))||labels.untitled;
 
               const excerpt=L==="tet"
-                ? item.excerptTet||item.excerptEn
-                : item.excerptEn;
+                ? pickText(item.excerptTet,item.excerptEn)
+                : pickText(item.excerptEn,item.excerptTet);
 
-              const primaryImageUrl=toAssetUrl(item.image);
+              const primaryImageUrl=failedImages.has(item.id)?undefined:toAssetUrl(item.image);
               const galleryImages=(item.images||[])
                 .map((img)=>toAssetUrl(img))
                 .filter(Boolean) as string[];
@@ -381,7 +407,7 @@ export default function ImpactPage(){
                   key={item.id}
                   className="flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
                 >
-                  {primaryImageUrl&&(
+                  {primaryImageUrl?(
                     <div className="relative h-56 w-full bg-gray-100">
                       <Image
                         src={primaryImageUrl}
@@ -389,8 +415,17 @@ export default function ImpactPage(){
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                        onError={()=>{
+                          setFailedImages((prev)=>{
+                            const next=new Set(prev);
+                            next.add(item.id);
+                            return next;
+                          });
+                        }}
                       />
                     </div>
+                  ):(
+                    <ImagePlaceholder/>
                   )}
 
                   <div className="flex flex-1 flex-col p-5">

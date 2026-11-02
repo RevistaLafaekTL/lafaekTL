@@ -56,6 +56,16 @@ const buildFileUrl=(keyOrUrl?:string)=>{
   return`${S3_ORIGIN}/${clean}`;
 };
 
+// Returns the first piece of text that isn't blank. Used so a story written
+// only in Tetun still shows its Tetun text when the site is in English, and
+// a story written only in English still shows in Tetun mode.
+function pickText(...values:(string|undefined)[]){
+  for(const v of values){
+    if(typeof v==="string"&&v.trim()){return v;}
+  }
+  return "";
+}
+
 export default function ImpactDetailPage(){
   const params=useParams();
   const rawId=(params as any)?.id;
@@ -67,14 +77,20 @@ export default function ImpactDetailPage(){
   const[item,setItem]=useState<ImpactItem|undefined>();
   const[loading,setLoading]=useState<boolean>(true);
   const[error,setError]=useState<string|undefined>();
+  // True if the story's image fails to load (missing or deleted from S3)
+  const[heroFailed,setHeroFailed]=useState<boolean>(false);
 
   const labels={
     en:{
       back:"← Back to Impact Stories",
+      untitled:"Untitled story",
+      noText:"No detailed text has been added for this story yet.",
       openPdf:"Open Full Impact Story (PDF)"
     },
     tet:{
       back:"← Fila fali ba Istória Impaktu",
+      untitled:"Istória la iha títulu",
+      noText:"Seidauk iha testu detalladu ba istória ida-ne'e.",
       openPdf:"Loke Istória Impaktu Kompletu (PDF)"
     }
   }[L];
@@ -90,6 +106,7 @@ export default function ImpactDetailPage(){
       try{
         setLoading(true);
         setError(undefined);
+        setHeroFailed(false);
 
         // FIX: was incorrectly calling /api/admin/impact which requires auth,
         // causing a 401 HTML redirect for non-admin visitors → JSON parse error.
@@ -109,9 +126,9 @@ export default function ImpactDetailPage(){
             : `impact-${index}`;
           const slug=typeof raw.slug==="string"&&raw.slug.trim()?raw.slug.trim():undefined;
 
-          const titleEn=String(raw.titleEn??"Untitled");
+          const titleEn=typeof raw.titleEn==="string"?raw.titleEn:"";
           const titleTet=typeof raw.titleTet==="string"?raw.titleTet:undefined;
-          const excerptEn=String(raw.excerptEn??"");
+          const excerptEn=typeof raw.excerptEn==="string"?raw.excerptEn:"";
           const excerptTet=typeof raw.excerptTet==="string"?raw.excerptTet:undefined;
           const bodyEn=typeof raw.bodyEn==="string"?raw.bodyEn:undefined;
           const bodyTet=typeof raw.bodyTet==="string"?raw.bodyTet:undefined;
@@ -123,6 +140,8 @@ export default function ImpactDetailPage(){
 
           const primaryImage=typeof raw.image==="string"&&raw.image.trim()
             ? raw.image.trim()
+            : typeof raw.imageUrl==="string"&&raw.imageUrl.trim()
+            ? raw.imageUrl.trim()
             : rawImages&&rawImages.length>0
             ? rawImages[0]
             : undefined;
@@ -209,17 +228,17 @@ export default function ImpactDetailPage(){
       </div>
     );
   }else{
-    const title=L==="tet"
-      ? item.titleTet||item.titleEn
-      : item.titleEn;
+    const title=(L==="tet"
+      ? pickText(item.titleTet,item.titleEn)
+      : pickText(item.titleEn,item.titleTet))||labels.untitled;
 
     const excerpt=L==="tet"
-      ? item.excerptTet||item.excerptEn
-      : item.excerptEn;
+      ? pickText(item.excerptTet,item.excerptEn)
+      : pickText(item.excerptEn,item.excerptTet);
 
     const body=L==="tet"
-      ? item.bodyTet||item.bodyEn||""
-      : item.bodyEn||"";
+      ? pickText(item.bodyTet,item.bodyEn)
+      : pickText(item.bodyEn,item.bodyTet);
 
     const heroImage=item.image||(Array.isArray(item.images)&&item.images[0])||undefined;
     const imageSrc=buildImageUrl(heroImage);
@@ -232,7 +251,7 @@ export default function ImpactDetailPage(){
       }
     }
 
-    const hasAnyBody=Boolean(item.bodyEn)||Boolean(item.bodyTet);
+    const hasAnyBody=Boolean(body);
     const hasPdf=Boolean(item.document);
 
     content=(
@@ -253,13 +272,14 @@ export default function ImpactDetailPage(){
           )}
         </header>
 
-        {heroImage&&(
+        {heroImage&&!heroFailed&&(
           <div className="relative mb-8 h-64 w-full overflow-hidden rounded-lg border border-gray-200">
             <Image
               src={imageSrc}
               alt={title}
               fill
               className="object-cover"
+              onError={()=>setHeroFailed(true)}
             />
           </div>
         )}
@@ -287,7 +307,7 @@ export default function ImpactDetailPage(){
 
         {!hasPdf&&!hasAnyBody&&(
           <p className="mt-6 rounded border border-gray-200 bg-gray-50 p-4 text-sm text-gray-600">
-            No detailed text has been added for this story yet.
+            {labels.noText}
           </p>
         )}
       </article>
