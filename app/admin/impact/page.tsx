@@ -185,7 +185,7 @@ export default function ImpactAdminPage(){
   const[onlyWithPdf,setOnlyWithPdf]=useState<boolean>(false);
   const[statusFilter,setStatusFilter]=useState<"all"|ImpactStatus>("all");
   const[dirtyIds,setDirtyIds]=useState<Set<string>>(new Set());
-  const[showFilters,setShowFilters]=useState<boolean>(false);
+  const[showFilters,setShowFilters]=useState<boolean>(true);
   const[expandedStoryId,setExpandedStoryId]=useState<string|null>(null);
 
   const stickyRef=useRef<HTMLDivElement>(null);
