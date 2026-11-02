@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, ChangeEvent } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import AdminGuard from "@/components/AdminGuard";
 import type { LearningCategorySlug, LearningItemRecord } from "@/lib/learning-types";
@@ -671,8 +672,11 @@ export default function AdminLearningPage() {
             </div>
           ) : null}
 
-          {isFormOpen ? (
-          <div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/40 p-4 md:p-8">
+          {/* The pop-up is rendered straight into <body> (a "portal") with a very
+              high z-index, so it always sits above the site's sticky navigation
+              bar instead of being tucked underneath it. */}
+          {isFormOpen && typeof document !== "undefined" ? createPortal(
+          <div className="fixed inset-0 z-[10050] flex items-start justify-center overflow-y-auto bg-black/40 p-4 md:p-8">
           <div className="flex max-h-[calc(100vh-2rem)] w-full max-w-3xl flex-col rounded-2xl border border-[#e5e7eb] bg-white shadow-xl md:max-h-[calc(100vh-4rem)]">
             <div className="flex items-start justify-between gap-4 border-b border-[#e5e7eb] p-6">
               <div>
@@ -952,7 +956,8 @@ export default function AdminLearningPage() {
               </button>
             </div>
           </div>
-          </div>
+          </div>,
+          document.body
           ) : null}
 
           <div className="rounded-2xl border border-[#e5e7eb] bg-white p-6 shadow-sm">
