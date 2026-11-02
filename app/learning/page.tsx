@@ -36,7 +36,7 @@ export default function LearningPage() {
     { slug: "natural-science", titleEn: "Natural Science", titleTet: "Siénsia Naturál", image: "/learning/icons/naturalscience.png" },
     { slug: "social-science", titleEn: "Social Science", titleTet: "Siénsia Sosiál", image: "/learning/icons/socialscience.png" },
     { slug: "physical-education", titleEn: "Physical Education", titleTet: "Edukasãun Físika", image: "/learning/icons/Sports.png" },
-    { slug: "literacy", titleEn: "Literacy", titleTet: "Leitura & Hakerek", image: "/learning/icons/Literacy.png" },
+    { slug: "literacy", titleEn: "Literacy", titleTet: "Leitura & Hakerek", image: "/learning/icons/literacy.png" },
     { slug: "mathematics", titleEn: "Mathematics", titleTet: "Matemátika", image: "/learning/icons/maths.png" },
     { slug: "health", titleEn: "Health", titleTet: "Saúde", image: "/learning/icons/Health.png" },
     { slug: "games", titleEn: "Games", titleTet: "Jogu sira", image: "/learning/icons/games1.png" },
