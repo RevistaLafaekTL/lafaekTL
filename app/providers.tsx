@@ -9,9 +9,19 @@ const authority=process.env.NEXT_PUBLIC_COGNITO_AUTHORITY||""
 const clientId=process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID||""
 const siteUrl=(process.env.NEXT_PUBLIC_SITE_URL||"").replace(/\/$/,"")
 
+// Use the address the visitor is actually on (lafaek-tl.vercel.app,
+// revista-lafaek.vercel.app, or a future custom domain), so the login
+// returns them to the same address it started from. The browser stores a
+// one-time security code for the login on that address; if Cognito sends
+// them back to a different address the code can't be found and login fails
+// with "No matching state found in storage".
+// NEXT_PUBLIC_SITE_URL is only used as a fallback while the page is being
+// prepared on the server, where there is no browser address yet.
+// Every address used here must be listed in Cognito's allowed callback and
+// sign-out URLs.
 function resolveOrigin(){
-  if(siteUrl){return siteUrl}
   if(typeof window!=="undefined"){return window.location.origin}
+  if(siteUrl){return siteUrl}
   return ""
 }
 
