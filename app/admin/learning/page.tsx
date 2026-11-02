@@ -131,6 +131,9 @@ export default function AdminLearningPage() {
   const [error, setError] = useState("");
   const [hasChanges, setHasChanges] = useState(false);
 
+  // Add/Edit form opens as a pop-up so it's visible without scrolling
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
   // ── Filters for the Saved Learning Items list ──────────────────────────────
   const [showFilters, setShowFilters] = useState(true);
   const [query, setQuery] = useState("");
@@ -366,11 +369,23 @@ export default function AdminLearningPage() {
     setPageImageUrls(Array.isArray(item.pageImageUrls) ? item.pageImageUrls : []);
     setPdfUrl(item.sourcePdfUrl || "");
     setHasChanges(false);
+    setIsFormOpen(true);
+  };
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+  const handleAddNew = () => {
+    if (hasChanges) {
+      const confirmed = window.confirm(
+        "You have unsaved changes in the current form. Start a new item and lose them?"
+      );
+      if (!confirmed) {
+        return;
+      }
+    }
+
+    setError("");
+    setMessage("");
+    resetForm();
+    setIsFormOpen(true);
   };
 
   const handleCancelEdit = () => {
@@ -384,6 +399,7 @@ export default function AdminLearningPage() {
     setError("");
     setMessage("");
     resetForm();
+    setIsFormOpen(false);
   };
 
   const handleCoverUpload = async (event: ChangeEvent<HTMLInputElement>) => {
@@ -587,6 +603,7 @@ export default function AdminLearningPage() {
 
       setMessage(isEditing ? "Learning item updated successfully." : "Learning item saved successfully.");
       resetForm();
+      setIsFormOpen(false);
       await loadItems();
     } catch (err) {
       const nextMessage =
@@ -628,42 +645,19 @@ export default function AdminLearningPage() {
                 </span>
               </div>
 
-              {isEditing ? (
-                <button
-                  type="button"
-                  onClick={handleCancelEdit}
-                  disabled={isBusy}
-                  className="rounded-lg border border-[#d1d5db] px-4 py-2 text-sm font-medium text-[#374151] hover:bg-[#f9fafb] disabled:opacity-60"
-                >
-                  Cancel Edit
-                </button>
-              ) : null}
-
               <button
-                type="submit"
-                form="learning-admin-form"
-                disabled={isBusy || !hasChanges}
-                className="rounded-lg bg-[#219653] px-4 py-2 text-sm font-semibold text-white disabled:opacity-60"
+                type="button"
+                onClick={handleAddNew}
+                disabled={isBusy}
+                className="rounded-lg bg-[#219653] px-4 py-2 text-sm font-semibold text-white hover:bg-[#1b7f45] disabled:opacity-60"
               >
-                {isSaving
-                  ? isEditing
-                    ? "Updating..."
-                    : "Saving..."
-                  : isEditing
-                  ? "Update Learning Item"
-                  : "Save Learning Item"}
+                + Add New
               </button>
             </div>
           </div>
         </div>
 
         <div className="mx-auto max-w-5xl space-y-8">
-          {hasChanges ? (
-            <div className="rounded-lg border border-[#f59e0b] bg-[#fff7ed] px-4 py-3 text-sm text-[#9a3412]">
-              You have unsaved changes. Click <span className="font-semibold">Save Learning Item</span> or{" "}
-              <span className="font-semibold">Update Learning Item</span> before leaving this page.
-            </div>
-          ) : null}
 
           {message ? (
             <div className="rounded-lg border border-[#6FCF97] bg-[#ecfdf3] px-4 py-3 text-sm text-[#166534]">
@@ -671,23 +665,48 @@ export default function AdminLearningPage() {
             </div>
           ) : null}
 
-          {error ? (
+          {error && !isFormOpen ? (
             <div className="rounded-lg border border-[#EB5757] bg-[#fef2f2] px-4 py-3 text-sm text-[#991b1b]">
               {error}
             </div>
           ) : null}
 
-          <div className="rounded-2xl border border-[#e5e7eb] bg-white p-6 shadow-sm">
-            <div className="mb-4">
-              <h2 className="text-xl font-bold text-[#1f2937]">
-                {isEditing ? "Edit Learning Item" : "Add New Learning Item"}
-              </h2>
-              <p className="mt-1 text-sm text-[#4b5563]">
-                {isEditing
-                  ? `You are editing ${editingItemId}.`
-                  : "Create a new category-based learning item and upload the related files."}
-              </p>
+          {isFormOpen ? (
+          <div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/40 p-4 md:p-8">
+          <div className="flex max-h-[calc(100vh-2rem)] w-full max-w-3xl flex-col rounded-2xl border border-[#e5e7eb] bg-white shadow-xl md:max-h-[calc(100vh-4rem)]">
+            <div className="flex items-start justify-between gap-4 border-b border-[#e5e7eb] p-6">
+              <div>
+                <h2 className="text-xl font-bold text-[#1f2937]">
+                  {isEditing ? "Edit Learning Item" : "Add New Learning Item"}
+                </h2>
+                <p className="mt-1 text-sm text-[#4b5563]">
+                  {isEditing
+                    ? `You are editing ${editingItemId}.`
+                    : "Create a new category-based learning item and upload the related files."}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={handleCancelEdit}
+                disabled={isBusy}
+                aria-label="Close"
+                className="rounded-lg px-2 py-1 text-xl leading-none text-[#6b7280] hover:bg-[#f3f4f6] disabled:opacity-60"
+              >
+                ×
+              </button>
             </div>
+
+            <div className="flex-1 overflow-y-auto p-6">
+            {error ? (
+              <div className="mb-4 rounded-lg border border-[#EB5757] bg-[#fef2f2] px-4 py-3 text-sm text-[#991b1b]">
+                {error}
+              </div>
+            ) : null}
+            {message ? (
+              <div className="mb-4 rounded-lg border border-[#6FCF97] bg-[#ecfdf3] px-4 py-3 text-sm text-[#166534]">
+                {message}
+              </div>
+            ) : null}
 
             <form id="learning-admin-form" className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid gap-4 md:grid-cols-2">
@@ -903,7 +922,38 @@ export default function AdminLearningPage() {
                 </label>
               </div>
             </form>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-end gap-3 border-t border-[#e5e7eb] p-4">
+              {hasChanges ? (
+                <span className="mr-auto text-xs font-medium text-[#b45309]">Unsaved changes</span>
+              ) : null}
+              <button
+                type="button"
+                onClick={handleCancelEdit}
+                disabled={isBusy}
+                className="rounded-lg border border-[#d1d5db] px-4 py-2 text-sm font-medium text-[#374151] hover:bg-[#f9fafb] disabled:opacity-60"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                form="learning-admin-form"
+                disabled={isBusy || !hasChanges}
+                className="rounded-lg bg-[#219653] px-4 py-2 text-sm font-semibold text-white hover:bg-[#1b7f45] disabled:opacity-60"
+              >
+                {isSaving
+                  ? isEditing
+                    ? "Updating..."
+                    : "Saving..."
+                  : isEditing
+                  ? "Update Learning Item"
+                  : "Save Learning Item"}
+              </button>
+            </div>
           </div>
+          </div>
+          ) : null}
 
           <div className="rounded-2xl border border-[#e5e7eb] bg-white p-6 shadow-sm">
             <div className="mb-4 flex items-center justify-between gap-4">
