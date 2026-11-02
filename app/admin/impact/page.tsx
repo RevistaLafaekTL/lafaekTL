@@ -2,6 +2,7 @@
 "use client";
 
 import {useEffect,useLayoutEffect,useMemo,useRef,useState,ChangeEvent}from "react";
+import {createPortal}from "react-dom";
 import Link from "next/link";
 import {getUserDisplayName,getUserEmail}from "@/lib/auth";
 
@@ -1046,8 +1047,11 @@ export default function ImpactAdminPage(){
           </div>
         )}
 
-        {showAddModal&&(
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
+        {/* The pop-up is rendered straight into <body> (a "portal") with a very
+            high z-index, so it always sits above the site's sticky navigation
+            bar instead of being tucked underneath it. */}
+        {showAddModal&&typeof document!=="undefined"&&createPortal(
+          <div className="fixed inset-0 z-[10050] flex items-start justify-center overflow-y-auto bg-black/40 p-4 md:items-center md:p-8">
             <div className="w-full max-w-2xl rounded-xl bg-white p-6 shadow-xl">
               <h2 className="text-xl font-semibold text-slate-900">Add New Impact Story</h2>
               <p className="mt-1 text-sm text-slate-600">
@@ -1084,7 +1088,8 @@ export default function ImpactAdminPage(){
                 </button>
               </div>
             </div>
-          </div>
+          </div>,
+          document.body
         )}
       </div>
     </div>
