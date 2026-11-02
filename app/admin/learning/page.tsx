@@ -131,6 +131,14 @@ export default function AdminLearningPage() {
   const [error, setError] = useState("");
   const [hasChanges, setHasChanges] = useState(false);
 
+  // ── Filters for the Saved Learning Items list ──────────────────────────────
+  const [showFilters, setShowFilters] = useState(true);
+  const [query, setQuery] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState<LearningCategorySlug | "all">("all");
+  const [statusFilter, setStatusFilter] = useState<"all" | "published" | "draft">("all");
+  const [onlyWithPdf, setOnlyWithPdf] = useState(false);
+  const [sortMode, setSortMode] = useState<"updated" | "title" | "category">("updated");
+
   const isBusy = useMemo(() => {
     return (
       isSaving ||
@@ -153,6 +161,69 @@ export default function AdminLearningPage() {
   const totalPages = useMemo(() => {
     return items.reduce((sum, item) => sum + item.pageImageUrls.length, 0);
   }, [items]);
+
+  const filteredItems = useMemo(() => {
+    let list = [...items];
+
+    const q = query.trim().toLowerCase();
+    if (q) {
+      list = list.filter((item) => {
+        const fields = [
+          item.itemId,
+          item.titleEn,
+          item.titleTet,
+          item.descriptionEn,
+          item.descriptionTet,
+        ]
+          .filter(Boolean)
+          .map((value) => String(value).toLowerCase());
+        return fields.some((value) => value.includes(q));
+      });
+    }
+
+    if (categoryFilter !== "all") {
+      list = list.filter((item) => item.categorySlug === categoryFilter);
+    }
+
+    if (statusFilter === "published") {
+      list = list.filter((item) => item.isPublished);
+    } else if (statusFilter === "draft") {
+      list = list.filter((item) => !item.isPublished);
+    }
+
+    if (onlyWithPdf) {
+      list = list.filter((item) => !!item.sourcePdfUrl);
+    }
+
+    const titleOf = (item: LearningItemRecord) =>
+      String(item.titleTet || item.titleEn || "").toLowerCase();
+    const updatedOf = (item: LearningItemRecord) =>
+      item.updatedAt ? new Date(item.updatedAt).getTime() : 0;
+
+    list.sort((a, b) => {
+      if (sortMode === "title") {
+        return titleOf(a).localeCompare(titleOf(b));
+      }
+      if (sortMode === "category") {
+        const byCategory = String(a.categorySlug).localeCompare(String(b.categorySlug));
+        return byCategory !== 0 ? byCategory : titleOf(a).localeCompare(titleOf(b));
+      }
+      return updatedOf(b) - updatedOf(a);
+    });
+
+    return list;
+  }, [items, query, categoryFilter, statusFilter, onlyWithPdf, sortMode]);
+
+  const hasActiveFilters =
+    !!query.trim() || categoryFilter !== "all" || statusFilter !== "all" || onlyWithPdf;
+
+  const clearFilters = () => {
+    setQuery("");
+    setCategoryFilter("all");
+    setStatusFilter("all");
+    setOnlyWithPdf(false);
+    setSortMode("updated");
+  };
 
   const markChanged = () => {
     setHasChanges(true);
@@ -843,14 +914,112 @@ export default function AdminLearningPage() {
                 </p>
               </div>
 
-              <button
-                type="button"
-                onClick={loadItems}
-                className="rounded-lg border border-[#d1d5db] px-4 py-2 text-sm font-medium text-[#374151] hover:bg-[#f9fafb]"
-              >
-                Refresh
-              </button>
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setShowFilters((value) => !value)}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-[#d1d5db] px-4 py-2 text-sm font-medium text-[#374151] hover:bg-[#f9fafb]"
+                >
+                  {showFilters ? "Hide filters" : "Filters"}
+                  {hasActiveFilters ? (
+                    <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[#2F80ED] text-[10px] font-bold text-white">
+                      !
+                    </span>
+                  ) : null}
+                </button>
+                <button
+                  type="button"
+                  onClick={loadItems}
+                  className="rounded-lg border border-[#d1d5db] px-4 py-2 text-sm font-medium text-[#374151] hover:bg-[#f9fafb]"
+                >
+                  Refresh
+                </button>
+              </div>
             </div>
+
+            {showFilters ? (
+              <div className="mb-5 space-y-3 rounded-xl border border-[#e5e7eb] bg-[#fafafa] p-4">
+                <input
+                  type="text"
+                  value={query}
+                  onChange={(event) => setQuery(event.target.value)}
+                  placeholder="Search title, description or item ID…"
+                  className="w-full rounded-lg border border-[#d1d5db] bg-white px-3 py-2 text-sm outline-none focus:border-[#219653]"
+                />
+
+                <div className="flex flex-wrap items-center gap-3 text-sm text-[#374151]">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-[#6b7280]">Category</span>
+                    <select
+                      value={categoryFilter}
+                      onChange={(event) =>
+                        setCategoryFilter(event.target.value as LearningCategorySlug | "all")
+                      }
+                      className="rounded-lg border border-[#d1d5db] bg-white px-2 py-2 text-sm"
+                    >
+                      <option value="all">All categories</option>
+                      {CATEGORY_OPTIONS.map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-[#6b7280]">Status</span>
+                    <select
+                      value={statusFilter}
+                      onChange={(event) =>
+                        setStatusFilter(event.target.value as "all" | "published" | "draft")
+                      }
+                      className="rounded-lg border border-[#d1d5db] bg-white px-2 py-2 text-sm"
+                    >
+                      <option value="all">All</option>
+                      <option value="published">Published</option>
+                      <option value="draft">Draft</option>
+                    </select>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-[#6b7280]">Sort</span>
+                    <select
+                      value={sortMode}
+                      onChange={(event) =>
+                        setSortMode(event.target.value as "updated" | "title" | "category")
+                      }
+                      className="rounded-lg border border-[#d1d5db] bg-white px-2 py-2 text-sm"
+                    >
+                      <option value="updated">Recently updated</option>
+                      <option value="title">Title A–Z</option>
+                      <option value="category">Category</option>
+                    </select>
+                  </div>
+
+                  <label className="inline-flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      checked={onlyWithPdf}
+                      onChange={(event) => setOnlyWithPdf(event.target.checked)}
+                      className="h-4 w-4 rounded border-[#d1d5db]"
+                    />
+                    With PDF
+                  </label>
+
+                  <button
+                    type="button"
+                    onClick={clearFilters}
+                    className="rounded-lg border border-[#d1d5db] bg-white px-3 py-2 text-sm text-[#374151] hover:bg-[#f3f4f6]"
+                  >
+                    Clear filters
+                  </button>
+                </div>
+
+                <p className="text-xs text-[#6b7280]">
+                  Showing {filteredItems.length} of {items.length} items
+                </p>
+              </div>
+            ) : null}
 
             {isLoading ? (
               <div className="rounded-xl bg-[#fafafa] p-4 text-sm text-[#4b5563]">
@@ -860,9 +1029,13 @@ export default function AdminLearningPage() {
               <div className="rounded-xl bg-[#fafafa] p-4 text-sm text-[#4b5563]">
                 No learning items found yet.
               </div>
+            ) : filteredItems.length === 0 ? (
+              <div className="rounded-xl border border-dashed border-[#d1d5db] bg-white p-4 text-center text-sm text-[#4b5563]">
+                No learning items match your filters.
+              </div>
             ) : (
               <div className="space-y-4">
-                {items.map((item) => {
+                {filteredItems.map((item) => {
                   const categoryLabel =
                     CATEGORY_OPTIONS.find((option) => option.value === item.categorySlug)?.label ||
                     item.categorySlug;
